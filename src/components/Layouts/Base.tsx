@@ -2,6 +2,7 @@ import type { ReactNode } from "react"
 import clsx from 'clsx'
 import NavBar from "../NavBar/NavBar"
 import Spinner from "../Spinner/Spinner"
+import Logo from "../../assets/logo.jpg"
 
 export type BaseLayoutProps = {
     children: ReactNode
@@ -14,7 +15,10 @@ export default function BaseLayout ({children, className, isLoading}: BaseLayout
         <div className={clsx(["d-flex flex-column min-vh-100", className])}>
             <NavBar>
                 <NavBar.Brand href="/">
-                    Bodmin Darts League
+                    <div className="d-flex align-items-center gap-2">
+                        <img src={Logo} width={48} height={48} className="rounded" />
+                        Bodmin Darts League
+                    </div>
                 </NavBar.Brand>
 
                 <NavBar.Toggle />
