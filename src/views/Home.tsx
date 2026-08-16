@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 
 const Home = () => {
   return (
-    <BaseLayout>
+    <BaseLayout title="Home">
       {/* Hero */}
       <section className="py-5">
         <Container>
@@ -26,10 +26,12 @@ const Home = () => {
               </p>
 
               <div className="d-flex gap-2">
+                {/* @ts-expect-error TODO resolve */}
                 <Button as={Link} to="/tables" >
                   View League Tables
                 </Button>
 
+                {/* @ts-expect-error TODO resolve */}
                 <Button as={Link} to="/results" variant="outline-primary">
                   View Results
                 </Button>
@@ -65,6 +67,7 @@ const Home = () => {
                     team positions.
                   </p>
 
+                {/* @ts-expect-error TODO resolve */}
                   <Button as={Link} to="/tables" variant="outline-primary">
                     View Tables
                   </Button>
@@ -84,6 +87,7 @@ const Home = () => {
                     previous matches.
                   </p>
 
+                    {/* @ts-expect-error TODO resolve */}
                   <Button as={Link} to="/results" variant="outline-primary">
                     View Results
                   </Button>
@@ -103,6 +107,7 @@ const Home = () => {
                     Bodmin Darts League.
                   </p>
 
+                    {/* @ts-expect-error TODO resolve */}
                   <Button as={Link} to="/about" variant="outline-primary">
                     View Rules
                   </Button>
