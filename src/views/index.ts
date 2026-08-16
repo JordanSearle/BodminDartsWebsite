@@ -1,0 +1,5 @@
+export { default as About } from './About'
+export { default as Fixtures } from './Fixtures'
+export { default as Home } from './Home'
+export { default as NotFound } from './NotFound'
+export { default as Tables } from './Tables'
