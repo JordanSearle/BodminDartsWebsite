@@ -6,7 +6,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
-      <Route path="/fixtures" element={<Fixtures />} />
+      <Route path="/results" element={<Fixtures />} />
       <Route path="/tables" element={<Tables />} />
       <Route path="/404" element={<NotFound />} />
       <Route path="*" element={<Navigate to="/404" replace />} />
