@@ -2,10 +2,12 @@ import type { ReactNode } from 'react'
 import {
   Accordion as BootstrapAccordion,
 } from 'react-bootstrap'
+import type { AccordionEventKey } from 'react-bootstrap/esm/AccordionContext'
 
 interface AccordionProps {
   children: ReactNode
   className?: string
+  defaultActiveKey?: AccordionEventKey
 }
 
 interface ItemProps {
@@ -21,9 +23,9 @@ interface BodyProps {
   children: ReactNode
 }
 
-const Accordion = ({ children, className }: AccordionProps) => {
+const Accordion = ({ children, className, defaultActiveKey }: AccordionProps) => {
   return (
-    <BootstrapAccordion className={className}>
+    <BootstrapAccordion className={className} defaultActiveKey={defaultActiveKey}>
       {children}
     </BootstrapAccordion>
   )
