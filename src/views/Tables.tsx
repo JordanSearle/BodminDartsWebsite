@@ -9,7 +9,7 @@ export default function Tables () {
     tables,
     loading,
     error,
-  } = useTables('1ib7FP8F__XjtehFZy0kZtEkZPP7R4Jgz');
+  } = useTables('1LKmRCg9vTRqxsiXzwPRDXjS5zWQZ_YvS');
 
   return (
     <BaseLayout title="Tables">
@@ -21,7 +21,7 @@ export default function Tables () {
           </p>
         </div>
 
-        {loading && !tables.length && (
+        {loading && (
           <div className="d-flex justify-content-center py-5">
             <Spinner animation="border" role="status">
               <span className="visually-hidden">
