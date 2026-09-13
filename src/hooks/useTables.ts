@@ -1,5 +1,4 @@
 import { useEffect, useMemo } from "react";
-import { useGoogleDriveDirectories } from "./useGoogleDriveDirectories";
 import { useLatestGoogleDriveFile } from "./useLatestGoogleDriveFile";
 
 export interface Table {
@@ -10,75 +9,41 @@ export interface Table {
 }
 
 export interface TableYear {
-  id: string;
-  name: string;
-  createdTime: string;
   tables: Table[];
   loading: boolean;
   error: Error | null;
 }
 
-export function useTables(yearsFolderId: string) {
-  const {
-    directories,
-    getDirectories,
-  } = useGoogleDriveDirectories();
-
+export function useTables(folderId: string) {
   const {
     files,
     getLatestFile,
   } = useLatestGoogleDriveFile();
 
   /*
-   * Get the years
+   * Get the active tables
    */
   useEffect(() => {
-    if (!directories[yearsFolderId]) {
-      getDirectories(yearsFolderId);
+    if (!files[folderId]) {
+      getLatestFile(folderId);
     }
-  }, [yearsFolderId, directories, getDirectories]);
-
-  const years = useMemo(() => {
-    return directories[yearsFolderId]?.data ?? [];
-  }, [directories, yearsFolderId]);
+  }, [folderId, files, getLatestFile]);
 
   /*
-   * Get the latest table for each year
+   * Return the list of tables for the given folder
    */
-  useEffect(() => {
-    years.forEach((year) => {
-      if (!files[year.id]) {
-        getLatestFile(year.id);
-      }
-    });
-  }, [years, files, getLatestFile]);
+  const tables = useMemo<TableYear>(() => {
+    const fileState = files[folderId]
 
-  /*
-   * Combine the year directory with its latest table
-   */
-  const tables = useMemo<TableYear[]>(() => {
-    return years.map((year) => {
-      const fileState = files[year.id];
+    return {
+      tables: fileState?.data ?? null,
+      loading: fileState?.loading ?? false,
+      error: fileState?.error ?? null,
+    };
+  }, [folderId, files])
 
-      return {
-        id: year.id,
-        name: year.name,
-        createdTime: year.createdTime,
-        tables: fileState?.data ?? null,
-        loading: fileState?.loading ?? false,
-        error: fileState?.error ?? null,
-      };
-    });
-  }, [years, files]);
-
-  const loading =
-    directories[yearsFolderId]?.loading === true ||
-    tables.some((year) => year.loading);
-
-  const error =
-    directories[yearsFolderId]?.error ??
-    tables.find((year) => year.error)?.error ??
-    null;
+  const loading = !!files[folderId]?.loading;
+  const error = files[folderId]?.error ?? null;
 
   return {
     tables,
