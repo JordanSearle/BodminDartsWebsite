@@ -60,7 +60,7 @@ export default function Tables () {
   const loading = isLoadingActive || isLoadingArchive
   const error = activeError || archiveError
 
-  const formattedArchivedTables = useMemo<Record<string, Table[]>>(() => {
+  const formattedArchivedTables = useMemo(() => {
     return groupBy(archivedTables?.tables ?? [], (table: Table )=> table.name.split(' - ')[0]);
   }, [archivedTables])
 
