@@ -24,7 +24,7 @@ const committeeMembers: CommitteeMember[] = [
 ];
 
 const RULES_URL = 
-  "https://docs.google.com/file/d/1WzWBprmhgIp2Nxml3AtgpThBtimMDFTj/preview";
+  "https://docs.google.com/file/d/1nKDIlBm6-yMW8e7ZUvD8Oe57poyu8YgD/preview";
 
 export default function About() {
   return (
