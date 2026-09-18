@@ -46,7 +46,7 @@ export default function About() {
                     <Card.Text>
                         <p className="fw-normal">Name: Bodmin Darts League</p>
                         <p className="fw-normal">Account Number: 34904168</p>
-                        <p className="fw-normal">Sort Code: 34904168</p>
+                        <p className="fw-normal">Sort Code: 30-98-98</p>
                     </Card.Text>
                 </Card.Body>
             </Card>
