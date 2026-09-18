@@ -41,6 +41,19 @@ export default function About() {
         <section className="mb-5">
             <Card className="h-100 mb-5">
                 <Card.Body>
+                    <h2 className="mb-3">Bank Account Details for BACs</h2>
+                    <Card.Text>
+                        <p className="fw-normal">Name: Bodmin Darts League</p>
+                        <p className="fw-normal">Account Number: 34904168</p>
+                        <p className="fw-normal">Sort Code: 34904168</p>
+                    </Card.Text>
+                </Card.Body>
+            </Card>
+        </section>
+
+        <section className="mb-5">
+            <Card className="h-100 mb-5">
+                <Card.Body>
                     <h2 className="mb-3">Committee Members</h2>
                     <Card.Text>
                     {committeeMembers.map((member) => 
