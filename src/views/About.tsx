@@ -4,6 +4,7 @@ import { BaseLayout } from "../components";
 interface CommitteeMember {
   name: string;
   role?: string;
+  email?: string;
 }
 
 const committeeMembers: CommitteeMember[] = [
@@ -12,7 +13,7 @@ const committeeMembers: CommitteeMember[] = [
   {name: "Matt Wilson", role: "Vice-Chairman"},
   {name: "Sarah Williams", role: "Secretary"},
   {name: "Graham Toms", role: "Treasurer"},
-  {name: "Jordan Searle", role: "Fixtures Secretary"},
+  {name: "Jordan Searle", role: "Fixtures Secretary", email: "mailTo:jordansearle@msn.com"},
   {name: "Charlotte Bunt"},
   {name: "Emma Dow"},
   {name: "Izack Chapman"},
@@ -57,7 +58,11 @@ export default function About() {
                     <h2 className="mb-3">Committee Members</h2>
                     <Card.Text>
                     {committeeMembers.map((member) => 
-                        <p className="fw-normal">{member.name} {member.role && <span className="fw-light">- {member.role}</span>}</p>
+                        <p className="fw-normal">
+                          {member.name} 
+                          {member.role && <span className="fw-light"> - {member.role}</span>}
+                          {member.email && <> - <a href={member.email} className="fw-light">Email</a></>}
+                          </p>
                     )}
                     </Card.Text>
                 </Card.Body>
